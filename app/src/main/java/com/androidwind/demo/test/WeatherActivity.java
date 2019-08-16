@@ -14,7 +14,7 @@ public class WeatherActivity extends BaseTActivity<WeatherPresenter> implements 
 
     private WeatherData mWeatherData;
     private TextView status, desc;
-    private Button ganmao, wendu;
+    private Button ganmao, wendu, setting;
 
     @Override
     protected int getContentViewLayoutID() {
@@ -30,6 +30,8 @@ public class WeatherActivity extends BaseTActivity<WeatherPresenter> implements 
         ganmao.setOnClickListener(this);
         wendu = findViewById(R.id.wendu);
         wendu.setOnClickListener(this);
+        setting = findViewById(R.id.setting);
+        setting.setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +49,8 @@ public class WeatherActivity extends BaseTActivity<WeatherPresenter> implements 
         } else if (v.getId() == R.id.wendu) {
             mPresenter.showTest2();
             // Toast.makeText(WeatherActivity.this, mWeatherData.data.wendu, Toast.LENGTH_LONG).show();
+        } else if (v.getId() == R.id.setting) {
+            readyGo(SettingActivity.class);
         }
     }
 
