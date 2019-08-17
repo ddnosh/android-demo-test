@@ -23,5 +23,6 @@ public interface WeatherContract {
         public abstract void initData();
         public abstract void getGanmao();
         public abstract void getWendu();
+        public abstract void save();
     }
 }

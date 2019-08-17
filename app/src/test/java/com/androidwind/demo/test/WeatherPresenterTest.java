@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -17,15 +19,25 @@ import static org.mockito.Mockito.verify;
 @Config(sdk = 28)
 public class WeatherPresenterTest {
     private WeatherPresenter presenter;
+    private WeatherController controller;
 
     @Before
     public void setUp() {
         presenter = mock(WeatherPresenter.class);
+        controller = mock(WeatherController.class);
     }
 
     @Test
     public void testRequest(){
         presenter.initData();
         verify(presenter).initData();
+    }
+
+    @Test
+    public void testSave(){
+        presenter = new WeatherPresenter();
+        presenter.setController(controller);
+        presenter.save();
+        verify(controller).saveToSDCard();
     }
 }
