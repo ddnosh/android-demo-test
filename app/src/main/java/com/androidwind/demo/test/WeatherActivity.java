@@ -42,18 +42,31 @@ public class WeatherActivity extends BaseTActivity<WeatherPresenter> implements 
     }
 
     @Override
+    public void showGanmao() {
+        Toast.makeText(WeatherActivity.this, mWeatherData.data.ganmao, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showWendu() {
+        Toast.makeText(WeatherActivity.this, mWeatherData.data.wendu, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void onClick(View v) {
         if (v.getId() == R.id.ganmao) {
-            mPresenter.showTest1();
-            // Toast.makeText(WeatherActivity.this, mWeatherData.data.ganmao, Toast.LENGTH_LONG).show();
+            mPresenter.getGanmao();
         } else if (v.getId() == R.id.wendu) {
-            mPresenter.showTest2();
-            // Toast.makeText(WeatherActivity.this, mWeatherData.data.wendu, Toast.LENGTH_LONG).show();
+            mPresenter.getWendu();
         } else if (v.getId() == R.id.setting) {
-            readyGo(SettingActivity.class);
+            toSettingPage();
         }
     }
 
+    public void toSettingPage() {
+        readyGo(SettingActivity.class);
+    }
+
+    // entrance for test
     public void setPresenter(WeatherPresenter presenter) {
         this.mPresenter = presenter;
     }

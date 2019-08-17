@@ -42,12 +42,14 @@ public class WeatherPresenter extends WeatherContract.Presenter {
     }
 
     @Override
-    public void showTest1() {
+    public void getGanmao() {
         LogUtil.i(TAG, "test1()");
+        getView().showGanmao();
     }
 
     @Override
-    public void showTest2() {
+    public void getWendu() {
         LogUtil.i(TAG, "test2()");
+        getView().showWendu();
     }
 }

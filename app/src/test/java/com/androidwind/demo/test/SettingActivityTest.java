@@ -2,6 +2,7 @@ package com.androidwind.demo.test;
 
 import android.app.Application;
 import android.content.res.ColorStateList;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import org.robolectric.annotation.Config;
 
 import java.lang.reflect.Field;
 
+import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -57,5 +59,12 @@ public class SettingActivityTest {
         Application application = RuntimeEnvironment.application;
         ColorStateList color = ColorStateList.valueOf(application.getResources().getColor(R.color.black));
         assertEquals("验证颜色", color, toasting.getTextColors());
+    }
+
+    @Test
+    public void testVisibility() {
+        TextView visible = activity.findViewById(R.id.visible);
+        activity.hide();
+        assertTrue("是否显示",visible.getVisibility()== View.GONE);
     }
 }

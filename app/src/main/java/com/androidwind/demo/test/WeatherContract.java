@@ -15,11 +15,13 @@ public interface WeatherContract {
 
     interface View extends BaseContract.BaseView {
         void refreshView(WeatherData data);
+        void showGanmao();
+        void showWendu();
     }
 
     abstract class Presenter extends BasePresenter<View> {
         public abstract void initData();
-        public abstract void showTest1();
-        public abstract void showTest2();
+        public abstract void getGanmao();
+        public abstract void getWendu();
     }
 }
