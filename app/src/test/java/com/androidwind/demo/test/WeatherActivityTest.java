@@ -17,12 +17,14 @@ import org.robolectric.shadows.ShadowApplication;
 import org.robolectric.shadows.ShadowTextView;
 
 import java.lang.reflect.Field;
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * @author ddnosh
@@ -80,6 +82,20 @@ public class WeatherActivityTest {
         Intent expectedIntent = new Intent(activity, SettingActivity.class);
         Intent actualIntent = ShadowApplication.getInstance().getNextStartedActivity();
         Assert.assertEquals(expectedIntent.getComponent(), actualIntent.getComponent());
+    }
+
+    @Test
+    public void testGetId() {
+        when(presenter.getId()).thenReturn(100);
+    }
+
+    @Test
+    public void testList() {
+        List mockedList = mock(List.class);
+        mockedList.add("one");
+        mockedList.clear();
+        verify(mockedList).add("one");
+        verify(mockedList).clear();
     }
 
     @Test

@@ -18,7 +18,7 @@ public class WeatherPresenter extends WeatherContract.Presenter {
 
     private final String TAG = "WeatherPresenter";
     private Map<String, String> queryMap = new HashMap<>();
-    public WeatherController controller;
+    public WeatherController controller = new WeatherController();
 
     @Override
     public void initData() {
@@ -62,5 +62,9 @@ public class WeatherPresenter extends WeatherContract.Presenter {
     public void setController(WeatherController controller) {
         LogUtil.i(TAG, "setController()");
         this.controller = controller;
+    }
+
+    public int getId() {
+        return 100;
     }
 }
